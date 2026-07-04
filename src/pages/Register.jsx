@@ -24,18 +24,18 @@ function Register()
         }
     }
 
-    return RegisterPage(email, setEmail, password, setPassword, error, handleRegister);
+    return <RegisterPage email={email} setEmail={setEmail} password={password} setPassword={setPassword} error={error} handleRegister={handleRegister} />
 }
 
-function RegisterPage(email, setEmail, password, setPassword, error, handleRegister)
+function RegisterPage(props)
 {
     return (
     <div className="auth-container">
         <h2>Create an account</h2>
-        {error && <p className="error">{error}</p>}
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <button onClick={handleRegister}>Register</button>
+        {props.error && <p className="error">{props.error}</p>}
+        <input type="email" placeholder="Email" value={props.email} onChange={(e) => props.setEmail(e.target.value)}/>
+        <input type="password" placeholder="Password" value={props.password} onChange={(e) => props.setPassword(e.target.value)}/>
+        <button onClick={props.handleRegister}>Register</button>
         <p>Already have an account? <a href="/login">Log in</a></p>
     </div>
     );

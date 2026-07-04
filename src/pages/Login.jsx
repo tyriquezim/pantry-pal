@@ -22,18 +22,18 @@ function Login()
         }
     }
 
-    return LoginPage(email, setEmail, password, setPassword, error, handleLogin);
+    return <LoginPage email={email} setEmail={setEmail} password={password} setPassword={setPassword} error={error} handleLogin={handleLogin} />
 }
 
-function LoginPage(email, setEmail, password, setPassword, error, handleLogin)
+function LoginPage(props)
 {
     return (
         <div className="auth-container">
             <h2>Log in</h2>
-            {error && <p className="error">{error}</p>}
-            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={handleLogin}>Log in</button>
+            {props.error && <p className="error">{props.error}</p>}
+            <input type="email" placeholder="Email" value={props.email} onChange={(e) => props.setEmail(e.target.value)} />
+            <input type="password" placeholder="Password" value={props.password} onChange={(e) => props.setPassword(e.target.value)} />
+            <button onClick={props.handleLogin}>Log in</button>
             <p>Don't have an account? <a href="/register">Register</a></p>
         </div>
     );
