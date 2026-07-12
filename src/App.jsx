@@ -6,7 +6,8 @@ import Home from "./pages/Home"
 import ProtectedRoute from "./components/ProtectedRoute";
 import NavBar from "./components/NavBar";
 import { useAuth } from "./context/AuthContext";
-import Pantry from './pages/Pantry';
+import Pantry from "./pages/Pantry";
+import MealDetail from "./pages/MealDetail";
 
 function App() 
 {
@@ -26,6 +27,11 @@ function AppRoutes(props)
             <ProtectedRoute>
                 <Pantry />
             </ProtectedRoute>
+        }/>
+        <Route path="/meal/:id" element={
+          <ProtectedRoute>
+            <MealDetail/>
+          </ProtectedRoute>
         }/>
         <Route path="/" element={
           <ProtectedRoute> 

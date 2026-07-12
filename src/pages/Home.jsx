@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useAuth} from "../context/AuthContext";
 import MealCard from "../components/MealCard"
 import { database } from "../firebase";
@@ -95,7 +95,7 @@ function Home()
         }
     }
 
-    return <HomePage user={user} query={query} setQuery={setQuery} meals={meals} setMeals={setMeals} loading={loading} setLoading={setLoading} error={error} setError={setError} handleKeyDown={handleKeyDown} />
+    return <HomePage user={user} query={query} setQuery={setQuery} meals={meals} setMeals={setMeals} loading={loading} setLoading={setLoading} error={error} setError={setError} pantry={pantry} setPantry={setPantry} handleSearch={handleSearch} filterByPantry={filterByPantry} setFilterByPantry={setFilterByPantry} handleKeyDown={handleKeyDown} />
 }
 
 function HomePage(props)
@@ -105,15 +105,15 @@ function HomePage(props)
             <h1>Welcome, {props.user.email}</h1>
             <div className="search-bar">
                 <input type="text" placeholder="Search for a meal..." value={props.query} onChange={(e) => props.setQuery(e.target.value)} onKeyDown={props.handleKeyDown}/>
-                <button onClick={handleSearch}>Search</button>
+                <button onClick={props.handleSearch}>Search</button>
             </div>
             <label className="pantry-toggle">
-                <input type="checkbox" checked={filterByPantry} onChange={(e) => setFilterByPantry(e.target.checked)}/>
+                <input type="checkbox" checked={props.filterByPantry} onChange={(e) => props.setFilterByPantry(e.target.checked)}/>
                 Only show meals I can make with my pantry
             </label>
-            {pantry.length > 0 && (
+            {props.pantry.length > 0 && (
         <p className="pantry-summary">
-          Pantry: {pantry.join(", ")}
+          Pantry: {props.pantry.join(", ")}
         </p>
       )}
             {props.loading && <p className="status">Searching...</p>}
