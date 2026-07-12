@@ -23,6 +23,8 @@ function NavBar()
             <span className="navbar-brand">PantryPal</span>
             {user && (
                 <div className="navbar-right">
+                    <a href="/" className="navbar-link">Search</a>
+                    <a href="/pantry" className="navbar-link">My Pantry</a>
                     <span className="navbar-email">{user.email}</span>
                     <button onClick={handleLogout}>Log Out</button>
                 </div>)}
