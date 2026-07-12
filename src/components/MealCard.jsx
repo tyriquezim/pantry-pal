@@ -10,3 +10,5 @@ function MealCard({meal})
         </div>
     );
 }
+
+export default MealCard;
