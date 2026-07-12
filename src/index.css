@@ -48,7 +48,153 @@ body
   background: #cf6d17;
 }
 
-.error {
+.error 
+{
   color: red;
   font-size: 14px;
+}
+
+.home-container
+{
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 32px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar
+{
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.search-bar input
+{
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-bar button
+{
+  padding: 10px 20px;
+  background: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-bar button:hover 
+{
+  background: #cf6d17;
+}
+
+.meal-grid
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.meal-card
+{
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.meal-card:hover
+{
+  transform: translateY(-4px);
+}
+
+.meal-card img 
+{
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.meal-card-info
+{
+  padding: 12px;
+}
+
+.meal-card-info h3
+{
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.meal-card-info p 
+{
+  font-size: 12px;
+  color: #888;
+}
+
+.status
+{
+  color: #888;
+  margin-top: 16px;
+}
+
+.navbar 
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  height: 60px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand 
+{
+  font-size: 20px;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+.navbar-right 
+{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-email 
+{
+  font-size: 14px;
+  color: #888;
+}
+
+.navbar button 
+{
+  padding: 8px 16px;
+  background: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navbar button:hover 
+{
+  background: #cf6d17;
 }
