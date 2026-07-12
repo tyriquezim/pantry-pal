@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import ProtectedRoute from "./components/ProtectedRoute";
 import NavBar from "./components/NavBar";
 import { useAuth } from "./context/AuthContext";
+import Pantry from './pages/Pantry';
 
 function App() 
 {
@@ -21,6 +22,11 @@ function AppRoutes(props)
       <Routes>
         <Route path="/login" element={props.user ? <Navigate to="/"/> : <Login />} />
         <Route path="/register" element={props.user ? <Navigate to="/"/> : <Register />} />
+        <Route path="/pantry" element={
+            <ProtectedRoute>
+                <Pantry />
+            </ProtectedRoute>
+        }/>
         <Route path="/" element={
           <ProtectedRoute> 
             <Home /> 
