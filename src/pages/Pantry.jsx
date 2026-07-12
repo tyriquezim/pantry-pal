@@ -59,7 +59,7 @@ function Pantry()
         }
     }
 
-    return <PantryPage input={input} setInput={setInput} ingredients={ingredients} loading={loading} handleRemove={handleRemove} handleKeyDown={handleKeyDown}/>
+    return <PantryPage input={input} setInput={setInput} ingredients={ingredients} loading={loading} handleAdd={handleAdd} handleRemove={handleRemove} handleKeyDown={handleKeyDown}/>
 }
 
 function PantryPage(props)
@@ -70,15 +70,15 @@ function PantryPage(props)
             <h1>My Pantry</h1>
             <p className="pantry-subtitle">Add ingredients you have available. Meal searches will only show meals you can make.</p>
             <div className="search-bar">
-                <input type="text" placeholder="Add an ingredient..." value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown}/>
-                <button onClick={handleAdd}>Add</button>
+                <input type="text" placeholder="Add an ingredient..." value={props.input} onChange={(e) => props.setInput(e.target.value)} onKeyDown={props.handleKeyDown}/>
+                <button onClick={props.handleAdd}>Add</button>
             </div>
-            {ingredients.length === 0 ? (<p className="status">No ingredients yet. Add some above.</p>) : (
+            {props.ingredients.length === 0 ? (<p className="status">No ingredients yet. Add some above.</p>) : (
             <div className="pantry-list">
-                {ingredients.map((ingredient) => (
+                {props.ingredients.map((ingredient) => (
                 <div key={ingredient} className="pantry-item">
                     <span>{ingredient}</span>
-                    <button onClick={() => handleRemove(ingredient)}>x</button>
+                    <button onClick={() => props.handleRemove(ingredient)}>x</button>
                 </div>))}
             </div>)}
         </div>
